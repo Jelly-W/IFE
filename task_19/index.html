@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<style>
+			#btn_box { display:inline-block; }
+			#btn_box input:nth-of-type(3),#btn_box input:nth-of-type(5) { margin-left:20px; }
+			#con { height:100px; display:-webkit-box; display:-webkit-flex; display:flex; align-items:flex-end; }
+			#con div { margin-left:4px; width:10px; background:red; }
+		</style>
+	</head>
+	<body>
+		<input id="txt" type="text" />
+		<div id="btn_box">
+			<input type="button" id="leftgo" value="左侧入" />
+			<input type="button" id="rightgo" value="右侧入" />
+			<input type="button" id="leftout" value="左侧出" />
+			<input type="button" id="rightout" value="右侧出" />
+			<input type="button" id="sort" value="排序" />
+			<input type="button" id="random" value="随机50" />
+		</div>
+		<div id="con"></div>
+		
+		
+		<script>
+			
+			var data=[];
+			
+			//获取元素
+			function $(id){
+				return document.getElementById(id);
+			};
+			
+			//开始排序
+			function bubbleSort(data){
+				var i=0;
+				var j=data.length;
+				var d=0;
+				btnState(true);
+				$('con').onclick=null;
+				clearInterval(data.timer);
+				data.timer=setInterval(function (){
+					if (data[i]>data[i+1]){
+						var t=data[i];
+						data[i]=data[i+1];
+						data[i+1]=t;
+						d++;
+					};
+					i++;
+					if (i==j){
+						j--;
+						i=0;
+						if (j==0 || d==0){
+							clearInterval(data.timer);
+							$('con').onclick=queueOper([].splice,false,getDataIndex,1);
+							btnState(false);
+						};
+						d=0;
+					};
+					setCon();
+					var aDiv=$('con').getElementsByTagName('div');
+					aDiv[i].style.background='yellow';
+				},30);
+			};
+			
+			
+			//按钮状态
+			function btnState(state){
+				var aBtn=$('btn_box').getElementsByTagName('input');
+				
+				for (var i=0; i<aBtn.length; i++){
+					aBtn[i].disabled=state;
+					console.log(1);
+				};
+			};
+			
+			//随机队列
+			function randomDate(){
+				for (var i=0; i<50; i++){
+					if (data.length<60){
+						data.push(Math.floor(Math.random()*90)+10);
+						setCon();
+					}
+					else
+					{
+						alert('数据最多为60条');
+						return;
+					};
+				};
+			};
+			
+			
+			//队列操作函数。
+			function queueOper(fn,succ){
+				var arge=[].slice.call(arguments,2);
+				return function (){
+					var a=[];
+					if (succ){
+						if (!judegData())return false;
+						fn.call(data,judegData());
+					}
+					else
+					{
+						for (var i=0; i<arge.length; i++){
+							if (typeof arge[i]=='function'){
+								a.push(arge[i]());
+							}
+							else
+							{
+								a.push(arge[i]);
+							};
+						};
+						alert(fn.apply(data,a));
+					};
+					setCon();
+					console.log(data);
+				};
+			};
+			
+			//渲染
+			function setCon(){
+				$('con').innerHTML='';
+				var str='';
+				for (var i=0; i<data.length; i++){
+					str+='<div style="height:'+data[i]+'px;"></div>';
+				};
+				$('con').innerHTML=str;
+			};
+			
+			//判断符不符合加入队列的条件。
+			function judegData(){
+				var str=$('txt').value;
+				if (str==''){
+					alert('请输入10-100之间的整数');
+					return false;
+				}
+				else if (isNaN(str)){
+					alert('请输入10-100之间的整数');
+					return false;
+				}
+				else if(str<10 || str>100){
+					alert('请输入10-100之间的整数');
+					return false;
+				}
+				else if(data.length>59){
+					alert('数据最多为60条');
+					return false;
+				}
+				else {
+					return str;
+				};
+			};
+			
+			//得到点击的是哪个div
+			function getDataIndex(e){
+				var e=e || event;
+				var t=e.target;
+				console.log([].indexOf.call(t.parentNode.children,t));
+				return [].indexOf.call(t.parentNode.children,t);
+			};
+			
+			$('leftgo').onclick=queueOper([].unshift,true);
+			$('rightgo').onclick=queueOper([].push,true);
+			$('leftout').onclick=queueOper([].shift,false);
+			$('rightout').onclick=queueOper([].pop,false);
+			$('con').onclick=queueOper([].splice,false,getDataIndex,1)
+			$('sort').onclick=function (){
+				bubbleSort(data);
+			};
+			$('random').onclick=function (){
+				randomDate();
+			};
+			
+		</script>
+	</body>
+</html>

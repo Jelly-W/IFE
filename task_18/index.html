@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>IFE JavaScript Task 01</title>
+		<meta charset="utf-8" />
+		<style>
+			#btn_box { display:inline-block; }
+			#btn_box input:nth-of-type(3) { margin-left:20px; }
+			#con { margin:12px 0; }
+			#con div { display:inline-block; color:#fff; margin:0 8px 8px 0; padding:8px 12px; background:red; }
+		</style>
+	</head>
+	<body>
+		<input id="txt" type="text" />
+		<div id="btn_box">
+			<input type="button" value="左侧入" />
+			<input type="button" value="右侧入" />
+			<input type="button" value="左侧出" />
+			<input type="button" value="右侧出" />
+		</div>
+		<div id="con"></div>
+		
+		
+		<script>
+			//获取id
+			function $(id){
+				return document.getElementById(id);
+			};
+			
+			//队列数据
+			var queue=[];
+			
+			//渲染函数
+			function setData(){
+				$('con').innerHTML='';
+				for (var i=0; i<queue.length; i++){
+					var oDiv=document.createElement('div');
+					oDiv.innerHTML=queue[i];
+					$('con').appendChild(oDiv);
+				};
+				delCon();
+			};
+			
+			//点谁删谁函数
+			function delCon(){
+				var aDiv=$('con').getElementsByTagName('div');
+				for (var i=0; i<aDiv.length; i++){
+					aDiv[i].index=i;
+					aDiv[i].onclick=function (){
+						alert(queue.splice(this.index,1));
+						setData();
+						
+					};
+				};
+			};
+			
+			var aBtn=$('btn_box').getElementsByTagName('input');
+			
+			//左侧入
+			aBtn[0].onclick=function() {
+				if (isNaN($('txt').value) || $('txt').value==''){
+					alert('请输入数字！');
+					return false;
+				};
+				queue.unshift($('txt').value);
+				setData();
+				//delCon();
+			};
+			//右侧入
+			aBtn[1].onclick=function() {
+				if (isNaN($('txt').value) || $('txt').value==''){
+					alert('请输入数字！');
+					return false;
+				};
+				queue.push($('txt').value);
+				setData();
+				//delCon();
+			};
+			//左侧出
+			aBtn[2].onclick=function() {
+				if (queue==''){
+					alert('您还没有输入内容，请输入些数字吧！');
+					return false;
+				};
+				alert(queue.shift());
+				setData();
+				//delCon();
+			};
+			//右侧出
+			aBtn[3].onclick=function() {
+				if (queue==''){
+					alert('您还没有输入内容，请输入些数字吧！');
+					return false;
+				};
+				alert(queue.pop());
+				setData();
+				//delCon();
+			};
+			
+		</script>
+	</body>
+</html>

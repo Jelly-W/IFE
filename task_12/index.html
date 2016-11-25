@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>CSS</title>
+		<meta charset="utf-8" />
+		<style>
+			* { margin:0px; padding:0px; list-style:none; }
+			table thead { background:#000; color:#fff; }
+			table tbody tr:nth-of-type(odd) { background:#ccc; }
+			table tbody tr:nth-of-type(even) { background:#ff0; }
+			table tbody tr:nth-of-type(1) { color:red; }
+			table tbody tr:nth-of-type(2) { color:red; }
+			table tbody tr:nth-of-type(3) { color:red; }
+			
+			input { width:200px; margin-top:20px; -webkit-transition:1s; transition:1s; }
+			input:focus { width:500px; }
+			
+			.box { position:relative; margin-top:20px; overflow:hidden; width:250px; height:150px; }
+			.box ul { position:absolute; top:0px; width:750px; -webkit-transition:0.6s; transition:0.6s; }
+			.box ul li { float:left; width:250px; height:150px; }
+			.box ul li:nth-of-type(1) { background:red; }
+			.box ul li:nth-of-type(2) { background:green; }
+			.box ul li:nth-of-type(3) { background:blue; }
+			
+			.box ol { position:absolute; right:5px; bottom:5px; height:30px; }
+			.box ol a { position:relative; float:left; margin:0 4px; width:30px; height:30px; line-height:30px; text-align:center; background:#fff; }
+			
+			#pic1:target~ul { left:0px; }
+			#pic2:target~ul { left:-250px; }
+			#pic3:target~ul { left:-500px; }
+			
+		</style>
+	</head>
+	<body>
+		<table border="1" width="300">
+			<thead>
+				<tr>
+					<th>排名</th>
+					<th>网站</th>
+					<th>热度</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>6.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>7.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>8.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>9.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+				<tr>
+					<td>10.</td>
+					<td>哔哩哔哩</td>
+					<td>100000</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<input type="text" />
+		
+		<div class="box">
+			<span id="pic1"></span>
+			<span id="pic2"></span>
+			<span id="pic3"></span>
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ol>
+				<a href="#pic1">1</a>
+				<a href="#pic2">2</a>
+				<a href="#pic3">3</a>
+			</ol>
+		</div>
+	</body>
+</html>

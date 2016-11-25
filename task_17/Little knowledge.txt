@@ -1,0 +1,5 @@
+将年月parse为一个Date对象。
+然后new Date(date.setDate(0));即为对应上个月最后一天的日期。
+
+var parse=new Date(2016,2);
+var lastDay=new Date(parse.setDate(0));s

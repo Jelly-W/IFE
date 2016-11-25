@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>三栏式布局</title>
+		<meta charset="utf-8" />
+		<style>
+			* { padding:0px; margin:0px; list-style:none; box-sizing:border-box; }
+			body { padding:20px 20px 0 20px; }
+			.container { position:relative; min-width:660px; overflow:hidden; border:1px solid #999; padding:20px; background:#eee; }
+			.leftbar,.wrap,.rightbar { background:#fff; border:1px solid #999; padding:20px; }
+			.leftbar { float:left; width:200px; position:relative; }
+			.leftbar img { float:left; width:80px; height:80px; }
+			.leftbar .team_info { position:absolute; left:120px; right:20px; height:80px; }
+			.leftbar .team_info h2 { font-size:15px; text-align:center; }
+			
+			.wrap { margin:0 140px 0 220px; min-width:220px; }
+			.wrap h2 { font-size:17px; }
+			.wrap span { line-height:30px; font-size:14px; color:#666; }
+			.wrap p { text-indent:28px; font-sizez:15px; line-height:24px; }
+			
+			.rightbar { float:right; width:120px; }
+			.rightbar li { margin-bottom:16px; }
+			.rightbar ul li:last-of-type { margin-bottom:0; }
+			.rightbar img { display:block; width:80px; height:80px; border:1px solid #999; }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="leftbar">
+				<img src="images/6.jpg" />
+				<div class="team_info">
+					<h2>努力的果冻</h2>
+				</div>
+			</div>
+			
+			<div class="rightbar">
+				<ul>
+					<li><img src="images/6.jpg" /></li>
+					<li><img src="images/6.jpg" /></li>
+					<li><img src="images/6.jpg" /></li>
+					<li><img src="images/6.jpg" /></li>
+				</ul>
+			</div>
+			<div class="wrap">
+				<h2>疯狂的果冻</h2>
+				<span>果冻是一种甜食，呈半固体状，由食用明胶加水、糖、果汁制成，柔软的它拥有各种技能.....</span>
+				<p>HTML、CSS、JavaScript
+这三个是前端开发中最基本也是最必须的三个技能。前端的开发中，在页面的布局时， HTML将元素进行定义，CSS对展示的元素进行定位，再通过JavaScript实现相应的效果和交互。虽然表面看起来很简单，但这里面需要掌握的东西绝对不会少。在进行开发前，需要对这些概念弄清楚、弄明白，这样在开发的过程中才会得心应手。</p>
+			</div>
+		</div>
+	</body>
+</html>

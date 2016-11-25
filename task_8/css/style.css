@@ -1,0 +1,42 @@
+body > div { float: left; padding: 10px; box-sizing: border-box; }
+
+body .box { background: #eee; border: 1px solid #999; box-sizing: border-box; height: 50px; }
+
+.col_l_12 { width: 100%; }
+
+.col_l_11 { width: 91.6666%; }
+
+.col_l_10 { width: 83.3333%; }
+
+.col_l_9 { width: 75%; }
+
+.col_l_8 { width: 66.666%; }
+
+.col_l_7 { width: 58.3333%; }
+
+.col_l_6 { width: 50%; }
+
+.col_l_5 { width: 41.6666%; }
+
+.col_l_4 { width: 33.333%; }
+
+.col_l_3 { width: 25%; }
+
+.col_l_2 { width: 16.6666%; }
+
+.col_l_1 { width: 8.3333%; }
+
+@media only screen and (max-width: 768px) { .col_s_12 { width: 100%; }
+  .col_s_11 { width: 91.6666%; }
+  .col_s_10 { width: 83.3333%; }
+  .col_s_9 { width: 75%; }
+  .col_s_8 { width: 66.666%; }
+  .col_s_7 { width: 58.3333%; }
+  .col_s_6 { width: 50%; }
+  .col_s_5 { width: 41.6666%; }
+  .col_s_4 { width: 33.333%; }
+  .col_s_3 { width: 25%; }
+  .col_s_2 { width: 16.6666%; }
+  .col_s_1 { width: 8.3333%; } }
+
+/*# sourceMappingURL=style.css.map */
