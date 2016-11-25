@@ -1,0 +1,67 @@
+body,a,div,span,ul,li,ol,p,h1,h2,h3,h4,h5,h6,input,button,img,label,form,i,em,strong,dl,dt,dd,textarea { margin:0px; font-weight:normal; padding:0px; font-family:Microsoft yahei; }
+a,input { -webkit-tap-highlight-color:transparent; } 
+input { outline:none; }
+body { background:#ccc; }
+/*清浮动*/
+.clear:after { content:''; display:block; clear:both; }
+.clear { zoom:1; }
+
+
+
+
+/*头部导航*/
+.header { height:60px; line-height:60px; background:#ffd; }
+.header h1 { float:left; height:40px; margin:10px 0 0 40px; }
+.header ul { float:right; }
+.header ul li { float:left; margin-right:28px; }
+.header ul li a { font-size:14px; }
+
+
+
+/*文章*/
+.article,.pic_list { background:#fff; margin:20px 20px 0 20px; padding:20px; border:1px solid #999; border-right:2px solid #999; border-bottom:2px solid #999; }
+.article h2,.pic_list h2 { font-size:22px; line-height:40px; }
+.article h3 { font-size:16px; color:#666; font-weight:bold; line-height:36px; }
+.article span { font-size:13px; color:#666; }
+.article p { text-indent:28px; margin:20px 0; font-size:15px; line-height:26px; }
+.article ul { margin-left:20px; font-size:15px; color:#000; }
+.article ul li { list-style:none; line-height:26px; }
+.article ol { margin:14px 0 14px 40px; }
+.article ol li { line-height:28px; }
+.article table { width:100%; border:1px solid #ccc; border-collapse:collapse }
+.article table thead { background:#222; color:#fff; }
+.article .last { background:#ccc; }
+.article table tr { height:24px; line-height:24px; }
+.article table td { font-size:14px; padding-left:4px; }
+
+
+
+/*图片*/
+.pic_list {}
+.pic_list h2 { margin-bottom:16px; }
+.pic_list dl { margin-left:40px; }
+.pic_list dl dd { padding:10px; margin-bottom:14px; border:1px solid #999; width:160px; }
+.pic_list dl dd p { margin-bottom:10px; text-align:center; }
+.pic_list dl dd img { width:160px; }
+
+
+/*侧栏*/
+.sidebar { background:#fff; margin:40px 40px 0 20px; padding:20px; border:1px solid #999; border-right:2px solid #999; border-bottom:2px solid #999; }
+.sidebar h2 { height:40px; line-height:40px; border-left:3px solid #ccc; padding-left:10px; font-size:16px; font-weight:bold; margin-bottom:20px; }
+.sidebar .form { margin-left:35%; }
+.sidebar .form p { overflow:hidden; margin-bottom:10px; }
+.sidebar .form p label { float:left; display:inline-block; color:#222; font-size:14px; width:100px; text-align:right; margin-right:10px; }
+.sidebar .form span { font-size:14px; color:#999; display:block; margin-left:118px; line-height:24px; margin-bottom:20px; }
+.sidebar .form textarea { float:left; width:50%; height:100px; }
+
+.sidebar input[type="submit"] { width:100%; font-size:18px; border-radius:8px; background:#3355D0; border:none; height:40px; line-height:40px; color:#fff; }
+
+
+/*页尾*/
+.footer { padding:20px 0 40px 0; background:#000; margin-top:20px; }
+.footer p { text-align:center; font-size:14px; font-weight:bold; color:#fff; }
+
+
+
+
+
